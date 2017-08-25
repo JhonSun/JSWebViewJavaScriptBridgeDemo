@@ -9,7 +9,7 @@
 #import "HtmlViewController.h"
 #import "WebViewJavascriptBridge.h"
 
-@interface HtmlViewController ()<UIWebViewDelegate, UIImagePickerControllerDelegate>
+@interface HtmlViewController ()<UIWebViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
@@ -40,6 +40,7 @@
         NSLog(@"调用oc代码了，参数：%@", data[@"key"]);
         UIImagePickerController *imagePickerC = [[UIImagePickerController alloc] init];
         imagePickerC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePickerC.allowsImageEditing = YES;
         imagePickerC.delegate = self;
         [self presentViewController:imagePickerC animated:YES completion:nil];
     }];
@@ -74,12 +75,19 @@
 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *originalImage = [info objectForKey:UIImagePickerControllerEditedImage];
     NSDateFormatter *dataFormatter = [[NSDateFormatter alloc] init];
     [dataFormatter setDateFormat:@"yyyyMMddHHssmmSSS"];
     NSString *aPath=[NSString stringWithFormat:
                      @"%@/Documents/%@%@.jpg",NSHomeDirectory(),@"test", [dataFormatter stringFromDate:[NSDate date]]];
     NSLog(@"沙盒路劲：%@", aPath);
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentPath = [NSString stringWithFormat:
+                              @"%@/Documents/",NSHomeDirectory()];
+    NSArray *fileList = [fileManager contentsOfDirectoryAtPath:documentPath error:nil];
+    for (NSString *filePath in fileList) {
+        [fileManager removeItemAtPath:[documentPath stringByAppendingString:filePath] error:nil];
+    }
     //image是对应的图片,即图片通过UIPickerController获取系统相册图
     NSData *imgData = UIImageJPEGRepresentation(originalImage,0);
     //保存到当地文件中

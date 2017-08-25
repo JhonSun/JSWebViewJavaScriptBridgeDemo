@@ -99,7 +99,7 @@
                     <navigationItem key="navigationItem" title="测试页" id="1xM-tH-onE">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="H6e-E2-6xW">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J0F-3r-9fn">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <rect key="frame" x="16" y="7" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="返回"/>
                                 <connections>
