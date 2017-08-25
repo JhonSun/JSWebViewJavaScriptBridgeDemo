@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="l3m-Me-3ff">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="gjB-Zl-Nev">
+            <objects>
+                <navigationController id="l3m-Me-3ff" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="vgy-lL-yME">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NS4-q9-2TJ" kind="relationship" relationship="rootViewController" id="HoB-Mv-tpt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QFl-Mj-Aqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-679" y="88"/>
+        </scene>
+        <!--首页-->
+        <scene sceneID="LtZ-Nc-5l7">
+            <objects>
+                <viewController id="NS4-q9-2TJ" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xqX-rB-Ore"/>
+                        <viewControllerLayoutGuide type="bottom" id="x8h-7I-OVz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RUQ-WQ-V6h">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biI-5o-mdu">
+                                <rect key="frame" x="10" y="256.5" width="355" height="30"/>
+                                <state key="normal" title="访问百度"/>
+                                <connections>
+                                    <action selector="baiduClick:" destination="NS4-q9-2TJ" eventType="touchUpInside" id="Zcf-SD-PGq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cA-e8-m8A">
+                                <rect key="frame" x="10" y="296.5" width="355" height="30"/>
+                                <state key="normal" title="网页交互"/>
+                                <connections>
+                                    <action selector="interactClick:" destination="NS4-q9-2TJ" eventType="touchUpInside" id="FKz-4k-6PV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="biI-5o-mdu" secondAttribute="trailing" constant="10" id="SnU-Ng-cLG"/>
+                            <constraint firstItem="3cA-e8-m8A" firstAttribute="trailing" secondItem="biI-5o-mdu" secondAttribute="trailing" id="YGf-43-JcQ"/>
+                            <constraint firstItem="3cA-e8-m8A" firstAttribute="top" secondItem="biI-5o-mdu" secondAttribute="bottom" constant="10" id="Z8R-DC-5dA"/>
+                            <constraint firstItem="3cA-e8-m8A" firstAttribute="leading" secondItem="biI-5o-mdu" secondAttribute="leading" id="bBk-Tz-mPF"/>
+                            <constraint firstItem="biI-5o-mdu" firstAttribute="centerY" secondItem="RUQ-WQ-V6h" secondAttribute="centerY" constant="-30" id="g6G-4f-tVY"/>
+                            <constraint firstItem="biI-5o-mdu" firstAttribute="leading" secondItem="RUQ-WQ-V6h" secondAttribute="leading" constant="10" id="go7-HW-eAi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="首页" id="VqO-Ng-9xd"/>
+                    <connections>
+                        <segue destination="Cp8-QZ-jSU" kind="show" identifier="webViewSegueIdf" id="bK6-CQ-3fN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Hg-7f-fWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="87.706146926536732"/>
+        </scene>
+        <!--测试页-->
+        <scene sceneID="jUV-p6-xzq">
+            <objects>
+                <viewController id="Cp8-QZ-jSU" customClass="HtmlViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nFZ-Pk-gHe"/>
+                        <viewControllerLayoutGuide type="bottom" id="t93-YF-7BT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YBe-5Y-lOm">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lzs-9w-fWl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lzs-9w-fWl" firstAttribute="top" secondItem="nFZ-Pk-gHe" secondAttribute="bottom" id="0fs-oo-XQN"/>
+                            <constraint firstItem="t93-YF-7BT" firstAttribute="top" secondItem="Lzs-9w-fWl" secondAttribute="bottom" id="2Qm-6h-COV"/>
+                            <constraint firstItem="Lzs-9w-fWl" firstAttribute="leading" secondItem="YBe-5Y-lOm" secondAttribute="leading" id="Rm6-b6-vru"/>
+                            <constraint firstAttribute="trailing" secondItem="Lzs-9w-fWl" secondAttribute="trailing" id="hmT-tO-UBG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="测试页" id="1xM-tH-onE">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="H6e-E2-6xW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J0F-3r-9fn">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="返回"/>
+                                <connections>
+                                    <action selector="gobackClick:" destination="Cp8-QZ-jSU" eventType="touchUpInside" id="32w-gL-Y7S"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="Lzs-9w-fWl" id="BsD-gP-iDP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="awz-2Q-QcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="744.79999999999995" y="87.706146926536732"/>
+        </scene>
+    </scenes>
+</document>
